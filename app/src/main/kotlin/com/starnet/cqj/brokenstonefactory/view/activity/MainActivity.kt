@@ -1,5 +1,6 @@
 package com.starnet.cqj.brokenstonefactory.view.activity
 
+import android.app.Fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -22,9 +23,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setActionBar(toolbar)
         actionBar.setDisplayHomeAsUpEnabled(false)
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, mFaultFragment)
-                .commit()
+        changeFragment(mFaultFragment)
         initEvent()
     }
 
@@ -32,28 +31,26 @@ class MainActivity : BaseActivity() {
         switchRg.setOnCheckedChangeListener { radioGroup, i ->
             when (i) {
                 R.id.main_btn_contacts -> {
-                    fragmentManager
-                            .beginTransaction()
-                            .replace(R.id.container, mContactsFragment)
-                            .commit()
+                    changeFragment(mContactsFragment)
                 }
                 R.id.main_btn_fault -> {
-                    fragmentManager
-                            .beginTransaction()
-                            .replace(R.id.container, mFaultFragment)
-                            .commit()
+                    changeFragment(mFaultFragment)
                 }
                 R.id.main_btn_info -> {
-                    fragmentManager
-                            .beginTransaction()
-                            .replace(R.id.container, mInfosFragment)
-                            .commit()
+                    changeFragment(mInfosFragment)
                 }
                 else -> {
-
+                    changeFragment(mFaultFragment)
                 }
             }
         }
+    }
+
+    private fun changeFragment(fragment: Fragment) {
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit()
     }
 
 
