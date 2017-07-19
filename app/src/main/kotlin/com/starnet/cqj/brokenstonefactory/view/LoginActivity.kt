@@ -18,12 +18,12 @@ class LoginActivity : BaseActivity() {
         edtAccount.setText(mAccount)
         edtPwd.setText(mPwd)
         btnLogin.setOnClickListener({
-            if(TextUtils.isEmpty(mAccount)) {
-                toast("请输入账号")
+            if(TextUtils.isEmpty(edtAccount.text.toString())) {
+                toast(R.string.account_hint)
                 return@setOnClickListener
             }
-            if(TextUtils.isEmpty(mPwd)){
-                toast("请输入密码")
+            if(TextUtils.isEmpty(edtPwd.text.toString())){
+                toast(R.string.pwd_hint)
                 return@setOnClickListener
             }
             mAccount = edtAccount.text.toString()
@@ -33,6 +33,6 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun login(account:String,pwd:String){
-
+        finish()
     }
 }
