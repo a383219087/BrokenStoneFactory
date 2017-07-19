@@ -1,6 +1,7 @@
 package com.starnet.cqj.brokenstonefactory.view
 
 import android.os.Bundle
+import android.text.TextUtils
 import com.starnet.cqj.brokenstonefactory.R
 import com.starnet.cqj.brokenstonefactory.base.BaseActivity
 import com.starnet.cqj.brokenstonefactory.delegate.Preference
@@ -17,7 +18,14 @@ class LoginActivity : BaseActivity() {
         edtAccount.setText(mAccount)
         edtPwd.setText(mPwd)
         btnLogin.setOnClickListener({
-
+            if(TextUtils.isEmpty(mAccount)) {
+                toast("请输入账号")
+                return@setOnClickListener
+            }
+            if(TextUtils.isEmpty(mPwd)){
+                toast("请输入密码")
+                return@setOnClickListener
+            }
             mAccount = edtAccount.text.toString()
             mPwd = edtPwd.text.toString()
             login(mAccount,mPwd)
