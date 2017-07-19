@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">BrokenStoneFactory</string>
+    <string name="app_name">碎石场系统</string>
     <string name="login_text">登录</string>
     <string name="account_hint">请输入账号</string>
     <string name="pwd_hint">请输入密码</string>
+    <string name="main_btn_contacts_text">通讯录</string>
+    <string name="main_btn_fault_text">故障</string>
+    <string name="main_btn_info_text">信息</string>
 </resources>

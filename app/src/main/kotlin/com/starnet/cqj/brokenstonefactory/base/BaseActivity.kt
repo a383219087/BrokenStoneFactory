@@ -14,13 +14,13 @@ open class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
     }
 
-    fun Activity.toast(message:String,length:Int = Snackbar.LENGTH_SHORT){
-        Snackbar.make(find(android.R.id.content),message,length).show()
+    fun Activity.toast(message: String, length: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(find(android.R.id.content), message, length).show()
 //        Toast.makeText(this,message,length).show();
     }
 
-    fun Activity.toast(@StringRes message:Int,length:Int=Toast.LENGTH_SHORT){
-        Snackbar.make(find(android.R.id.content),message,length).show()
+    fun Activity.toast(@StringRes message: Int, length: Int = Toast.LENGTH_SHORT) {
+        Snackbar.make(find(android.R.id.content), message, length).show()
 //        Toast.makeText(this,message,length).show()
     }
 }
