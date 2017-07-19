@@ -9,4 +9,7 @@
     <color name="transparent">#00000000</color>
     <color name="gray">#aeaeae</color>
     <color name="text_gray">#999999</color>
+    <color name="light_gray">#efefef</color>
+
+    <color name="main_bg">@color/light_gray</color>
 </resources>
