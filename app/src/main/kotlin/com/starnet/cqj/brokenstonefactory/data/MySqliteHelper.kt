@@ -17,7 +17,7 @@ class MySQLiteHelper(context: Context)
         db?.execSQL(createVersions)
         val createUser = "create table if not exists t_user(id INTEGER PRIMARY KEY AUTOINCREMENT,account VARCHAR(1000),name VARCHAR(1000),phone VARCHAR(100),levels INTEGER,departmentId INTEGER,isLogin INTEGER)"
         db?.execSQL(createUser)
-        val createFault ="create table if not exists t_fault(id INTEGER PRIMARY KEY AUTOINCREMENT,description VARCHAR(4000),isStopMachine INTEGER,restoreDate TIME,isRestore INTEGER,isCheck INTEGER,finishDate TIME)"
+        val createFault ="create table if not exists t_fault(id INTEGER PRIMARY KEY AUTOINCREMENT,description VARCHAR(4000),isStopMachine INTEGER,restoreDate TIME,isRestore INTEGER,isCheck INTEGER,finishDate TIME,restoreUserId INTEGER)"
         db?.execSQL(createFault)
         val createUnit = "create table if not exists t_unit(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(200),isValiable INTEGER,chooseCount INTEGER)"
         db?.execSQL(createUnit)

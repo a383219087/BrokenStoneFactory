@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import com.starnet.cqj.brokenstonefactory.R
 import com.starnet.cqj.brokenstonefactory.base.BaseActivity
+import com.starnet.cqj.brokenstonefactory.data.VersionDao
 import com.starnet.cqj.brokenstonefactory.delegate.Preference
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -37,6 +38,8 @@ class LoginActivity : BaseActivity() {
 
     private fun login(account: String, pwd: String) {
         //TODO 服务端验证
+        val versionDao = VersionDao(this)
+
         MainActivity.start(this)
         finish()
     }
