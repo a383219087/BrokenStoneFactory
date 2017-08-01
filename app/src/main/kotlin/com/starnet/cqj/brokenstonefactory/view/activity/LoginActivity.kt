@@ -2,10 +2,16 @@ package com.starnet.cqj.brokenstonefactory.view.activity
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import com.starnet.cqj.brokenstonefactory.R
 import com.starnet.cqj.brokenstonefactory.base.BaseActivity
-import com.starnet.cqj.brokenstonefactory.data.VersionDao
+import com.starnet.cqj.brokenstonefactory.data.IVersionDataSource
+import com.starnet.cqj.brokenstonefactory.data.local.VersionDao
+import com.starnet.cqj.brokenstonefactory.data.remote.RemoteVersionDataSource
 import com.starnet.cqj.brokenstonefactory.delegate.Preference
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
@@ -34,6 +40,7 @@ class LoginActivity : BaseActivity() {
             mPwd = edtPwd.text.toString()
             login(mAccount, mPwd)
         })
+        checkVersion()
     }
 
     private fun login(account: String, pwd: String) {
@@ -42,5 +49,24 @@ class LoginActivity : BaseActivity() {
 
         MainActivity.start(this)
         finish()
+    }
+
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
+
+    private fun checkVersion() {
+        val versionResource: IVersionDataSource = RemoteVersionDataSource()
+        versionResource.getVersions()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .doOnSubscribe {
+                    compositeDisposable.add(it)
+                }
+                .subscribe({ versions ->
+                    for (v in versions) {
+                        Log.e("test", v.id.toString() + v.tableName + v.version.toString())
+                    }
+                }, {
+                    it.printStackTrace()
+                })
     }
 }

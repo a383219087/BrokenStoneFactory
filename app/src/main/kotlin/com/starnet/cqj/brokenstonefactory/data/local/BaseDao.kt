@@ -1,4 +1,4 @@
-package com.starnet.cqj.brokenstonefactory.data
+package com.starnet.cqj.brokenstonefactory.data.local
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
