@@ -6,6 +6,6 @@ package com.starnet.cqj.brokenstonefactory.data.remote
  */
 class Constant{
     companion object{
-        val Url ="http://192.168.84.123:8088"
+        val Url ="http://192.168.84.123:8088/"
     }
 }

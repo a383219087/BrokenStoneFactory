@@ -5,7 +5,7 @@ import com.starnet.cqj.brokenstonefactory.data.remote.service.VersionService
 import com.starnet.cqj.brokenstonefactory.pojo.Version
 import io.reactivex.Observable
 
-class RemoteVersionDataSource : RemoteDataSourceBase(Constant.Url+"/versions/"),IVersionDataSource {
+class RemoteVersionDataSource : RemoteDataSourceBase(Constant.Url),IVersionDataSource {
 
     val service:VersionService
 

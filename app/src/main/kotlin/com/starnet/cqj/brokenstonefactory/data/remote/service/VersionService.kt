@@ -12,10 +12,10 @@ import retrofit2.http.Path
 
 interface VersionService{
 
-    @GET("/")
+    @GET("versions/")
     fun getVersions(): Observable<List<Version>>;
 
-    @GET("/{id}")
+    @GET("versions/{id}")
     fun getVersion(@Path("id") id:Int):Observable<Version>;
 
 }
