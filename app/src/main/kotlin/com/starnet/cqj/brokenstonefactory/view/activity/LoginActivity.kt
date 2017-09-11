@@ -69,4 +69,9 @@ class LoginActivity : BaseActivity() {
                     it.printStackTrace()
                 })
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        compositeDisposable.dispose()
+    }
 }

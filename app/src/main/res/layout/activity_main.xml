@@ -1,89 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg"
+    android:background="@color/white"
+    android:orientation="vertical"
     >
 
-    <include
-        android:id="@+id/title"
-        layout="@layout/layout_title"
+    <android.support.v7.widget.Toolbar
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_height="?android:attr/actionBarSize"/>
 
-    <RadioGroup
-        android:id="@+id/switchRg"
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <RadioButton
-            android:id="@+id/main_btn_contacts"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/main_bottom_button_bg_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/main_btn_contacts_text"
-            android:textColor="@color/main_bottom_button_text_color"
-            android:textSize="18sp"/>
+        <FrameLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-        <View
-            android:layout_width="1dp"
+        <!--侧滑菜单-->
+        <FrameLayout
+            android:id="@+id/menuContainer"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray"/>
+            android:layout_gravity="start"
+            android:background="#fff"
+            android:orientation="vertical"/>
 
-        <RadioButton
-            android:id="@+id/main_btn_fault"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/main_bottom_button_bg_selector"
-            android:button="@null"
-            android:checked="true"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/main_btn_fault_text"
-            android:textColor="@color/main_bottom_button_text_color"
-            android:textSize="18sp"/>
+    </android.support.v4.widget.DrawerLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/gray"/>
-
-        <RadioButton
-            android:id="@+id/main_btn_info"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/main_bottom_button_bg_selector"
-            android:button="@null"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/main_btn_info_text"
-            android:textColor="@color/main_bottom_button_text_color"
-            android:textSize="18sp"/>
-
-    </RadioGroup>
-
-    <View
-        android:id="@+id/bottom_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_above="@id/switchRg"
-        android:background="@color/gray"/>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_line"
-        android:layout_below="@id/title"/>
-</RelativeLayout>
+</LinearLayout>
